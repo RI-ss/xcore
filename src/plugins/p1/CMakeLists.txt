@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.16)
+project(p1 VERSION 1.0.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_library(p1 SHARED plugin.cpp)
+target_compile_definitions(p1 PRIVATE PLUGIN_EXPORTS)
+target_include_directories(p1 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
+install(TARGETS p1 DESTINATION .)
+
+set_target_properties(p1 PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/plugins
+    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/bin/plugins
+    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/bin/plugins
+)
