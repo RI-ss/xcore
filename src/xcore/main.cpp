@@ -3,6 +3,8 @@
 #include <plugin_interface.h>
 #include <Windows.h>
 #include <winnt.h>
+#include"json/json.hpp"
+#include "catch2/catch.hpp"
 int main() {
     std::cout << "Hello World from xcore" << std::endl;
     
@@ -21,3 +23,11 @@ int main() {
 
     return 0;
 }
+
+// TEST_CASE("T1"){
+//         nlohmann::json j={
+//         {"name", "Plugin1"},
+//         {"version", 1}
+//     };
+//     REQUIRE(j["name"]=="Plugin1");
+// }

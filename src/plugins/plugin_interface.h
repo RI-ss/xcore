@@ -23,3 +23,18 @@ extern "C" {
 }
 
 #endif
+
+class PluginInterface {
+public:
+    virtual const char* get_name() = 0;
+    virtual int get_version() = 0;
+
+    virtual ~PluginInterface() = default;
+
+    virtual bool initialize() = 0;
+    virtual bool initialize_field() = 0;
+    virtual bool initialize_refrence() = 0;
+    virtual bool initialize_sequence()=0;
+    virtual void shutdown()=0;
+};
+

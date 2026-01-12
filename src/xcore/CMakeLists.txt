@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(core VERSION 1.0.0 LANGUAGES CXX)
+# project(core VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -7,6 +7,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(xcore main.cpp)
 
+target_compile_definitions(xcore PRIVATE NOMINMAX)
+
+target_include_directories(xcore PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../third_party)
 target_include_directories(xcore PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../plugins)
 install(TARGETS xcore DESTINATION .)
 
